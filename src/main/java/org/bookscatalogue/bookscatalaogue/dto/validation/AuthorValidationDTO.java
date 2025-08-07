@@ -1,4 +1,7 @@
 package org.bookscatalogue.bookscatalaogue.dto.validation;
 
-public class AuthorValidationDTO {
+public record AuthorValidationDTO (
+        String name,
+        String biography
+) {
 }
