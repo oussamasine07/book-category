@@ -1,5 +1,6 @@
 package org.bookscatalogue.bookscatalaogue.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class Author {
     @Column(name = "biography")
     private String biography;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "author")
     private List<Book> books;
 

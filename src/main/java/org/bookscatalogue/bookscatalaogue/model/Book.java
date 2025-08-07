@@ -1,5 +1,6 @@
 package org.bookscatalogue.bookscatalaogue.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,7 @@ public class Book {
 
     @Column(name = "isbn")
     private String isbn;
+
 
     @ManyToOne
     private Author author;
