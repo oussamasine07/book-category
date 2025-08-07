@@ -1,4 +1,7 @@
 package org.bookscatalogue.bookscatalaogue.repository;
 
-public class BookRepository {
+import org.bookscatalogue.bookscatalaogue.model.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookRepository extends JpaRepository<Book, Long> {
 }
