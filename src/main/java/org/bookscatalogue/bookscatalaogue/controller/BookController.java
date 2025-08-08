@@ -2,6 +2,7 @@ package org.bookscatalogue.bookscatalaogue.controller;
 
 import jakarta.validation.Valid;
 import org.bookscatalogue.bookscatalaogue.dto.validation.BookValidationDTO;
+import org.bookscatalogue.bookscatalaogue.dto.validation.SearchBookByKeyword;
 import org.bookscatalogue.bookscatalaogue.service.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,10 @@ public class BookController {
         return bookService.createBook( bookValidationDTO );
     }
 
+    @GetMapping("/search-by-keyword")
+    public ResponseEntity<?> searchByKeyword (@RequestBody SearchBookByKeyword searchBookByKeyword) {
+        return bookService.searchByKeyword( searchBookByKeyword.keyword() );
+    }
 
 
 

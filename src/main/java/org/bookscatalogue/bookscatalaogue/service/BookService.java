@@ -44,6 +44,7 @@ public class BookService {
 
         book.setTitle( bookValidationDTO.title() );
         book.setIsbn( bookValidationDTO.isbn() );
+        book.setDescription( bookValidationDTO.description() );
 
         Author author = authorRepository.findById( bookValidationDTO.author_id() )
                 .orElseThrow(() -> new NotFoundException("author not found"));
@@ -52,4 +53,12 @@ public class BookService {
         Book savedBook = bookRepository.save( book );
         return new ResponseEntity<>(savedBook, HttpStatus.OK);
     }
+
+    public ResponseEntity<?> searchByKeyword ( String keyword ) {
+        List<Book> books = bookRepository.searchBooksByTitleOrDescription( keyword );
+
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+
 }

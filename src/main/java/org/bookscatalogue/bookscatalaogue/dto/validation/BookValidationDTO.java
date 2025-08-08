@@ -7,6 +7,9 @@ public record BookValidationDTO (
         @NotBlank(message = "title field is required")
         String title,
 
+        @NotBlank(message = "description field is required")
+        String description,
+
         @NotBlank(message = "isbn field is required")
         String isbn,
 
