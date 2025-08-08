@@ -34,6 +34,10 @@ public class AuthorController {
         return authorService.createAuthor(authorValidationDTO);
     }
 
+    @GetMapping("/author-starts-with")
+    public ResponseEntity<?> searchAuthorByName( @RequestParam char letter) {
+        return authorService.findAuthorNameStartsWith( letter );
+    }
 
 }
 

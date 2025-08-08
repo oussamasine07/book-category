@@ -45,4 +45,41 @@ public class AuthorService {
         return new ResponseEntity<>(savedAuthor, HttpStatus.OK);
     }
 
+    public ResponseEntity<?> findAuthorNameStartsWith (char letter ) {
+        List<Author> authors = authorRepository.findAuthorNameStartedWith( letter );
+
+        return new ResponseEntity<>(authors, HttpStatus.OK);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
