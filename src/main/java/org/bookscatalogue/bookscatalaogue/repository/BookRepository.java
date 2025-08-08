@@ -15,5 +15,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query(value = "select count(*) from books", nativeQuery = true)
     Integer countBooks();
 
+    @Query(value = "select * from books where title not like %:keyword%", nativeQuery = true)
+    List<Book> searchBooksNotLike(@Param("keyword") String keyword);
 
 }

@@ -71,5 +71,11 @@ public class BookService {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    public ResponseEntity<?> bookNotLike ( String keyword ) {
+        List<Book> books = bookRepository.searchBooksNotLike( keyword );
+
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
 
 }

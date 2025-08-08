@@ -44,6 +44,11 @@ public class BookController {
         return bookService.countNumberOfBooks();
     }
 
+    @GetMapping("/not-like")
+    public ResponseEntity<?> getBooksNotLike ( @RequestParam String keyword ) {
+        return bookService.bookNotLike( keyword );
+    }
+
 
 
 
