@@ -39,6 +39,11 @@ public class BookController {
         return bookService.searchByKeyword( searchBookByKeyword.keyword() );
     }
 
+    @GetMapping("/count-books")
+    public ResponseEntity<?> countBooks () {
+        return bookService.countNumberOfBooks();
+    }
+
 
 
 

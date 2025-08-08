@@ -11,7 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookService {
@@ -58,6 +60,15 @@ public class BookService {
         List<Book> books = bookRepository.searchBooksByTitleOrDescription( keyword );
 
         return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> countNumberOfBooks ( ) {
+        Integer numBooks = bookRepository.countBooks();
+
+        Map<String, Integer> result = new HashMap<>();
+        result.put("number of books", numBooks);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 
